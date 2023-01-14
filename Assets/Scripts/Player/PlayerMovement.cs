@@ -34,11 +34,6 @@ public class PlayerMovement : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 movement = new Vector3(horizontal, 0f, vertical);
 
-        if (movement != Vector3.zero)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
-        }
-
         transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
 
         anim.SetFloat("Speed", movement.magnitude);
