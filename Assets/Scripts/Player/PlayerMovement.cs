@@ -36,7 +36,8 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
 
-        anim.SetFloat("Speed", movement.magnitude);
+        anim.SetFloat("InputX", movement.x);
+        anim.SetFloat("InputZ", movement.z);
     }
 
     private void PlayerLook()
