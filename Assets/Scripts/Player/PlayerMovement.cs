@@ -4,37 +4,57 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Moving")]
-    public Rigidbody rb;
-    public float speed;
+    public float moveSpeed;
 
-    [Header("Jumping")]
-    public float jumpForce;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask ground;
+    private Rigidbody rb;
+
+    private Animator anim;
+
+    private Camera mainCamera;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
+
+        mainCamera = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-
-        rb.velocity = new Vector3(horizontalInput * speed, rb.velocity.y, verticalInput * speed);
-
-        if(Input.GetButtonDown("Jump") && IsGrounded())
-        {
-            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
-        }
+        PlayerMove();
+        PlayerLook();
     }
 
-    bool IsGrounded()
+    private void PlayerMove()
     {
-        return Physics.CheckSphere(groundCheck.position, 0.1f, ground);
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 movement = new Vector3(horizontal, 0f, vertical);
+
+        if (movement != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
+        }
+
+        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+
+        anim.SetFloat("Speed", movement.magnitude);
+    }
+
+    private void PlayerLook()
+    {
+        Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+        float rayLength;
+
+        if(groundPlane.Raycast(cameraRay, out rayLength))
+        {
+            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+
+            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+        }
     }
 }
