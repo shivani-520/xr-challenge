@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Player")]
     public float moveSpeed;
+    private Animator anim;
+    private Camera mainCamera;
 
+    [Header("Crosshair")]
     public Crosshair crosshairs;
 
-    private Rigidbody rb;
-
-    private Animator anim;
-
-    private Camera mainCamera;
+    [Header("Player Weapon")]
     Weapon weapon;
+    public float fireRate = 1f;
+    private float nextFire;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
 
         mainCamera = Camera.main;
@@ -32,8 +33,9 @@ public class PlayerMovement : MonoBehaviour
         PlayerMove();
         PlayerLook();
 
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButton("Fire1") && Time.time > nextFire)
         {
+            nextFire = Time.time + fireRate;
             weapon.StartFiring();
         }
         if(Input.GetButtonUp("Fire1"))
@@ -70,4 +72,5 @@ public class PlayerMovement : MonoBehaviour
             crosshairs.DetectTarget(cameraRay);
         }
     }
+
 }

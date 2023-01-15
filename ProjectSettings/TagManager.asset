@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collide
   - FxTemporaire
+  - Bullet
   layers:
   - Default
   - TransparentFX
