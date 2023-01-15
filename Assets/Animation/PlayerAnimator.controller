@@ -64,7 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: fdf3336a203651a4e948a4811ff4dfca,
+  m_Motion: {fileID: -203655887218126122, guid: fbf2cec6d7cf9b24e939b8cec75cedac,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -112,7 +112,8 @@ BlendTree:
     m_DirectBlendParameter: InputX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 3ad76988cb96447baba231c250dc3149, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: fbf2cec6d7cf9b24e939b8cec75cedac,
+      type: 3}
     m_Threshold: 0.5
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -221,7 +222,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Aiming
     m_StateMachine: {fileID: -4633700251283772168}
-    m_Mask: {fileID: 31900000, guid: c8fef4ea3d44d734ea0f7f0ba168ed5e, type: 2}
+    m_Mask: {fileID: 31900000, guid: cb2c3de2033ac344a8b0884ffe0ef9ef, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
