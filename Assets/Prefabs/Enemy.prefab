@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8612607450125453362}
+  - component: {fileID: 6549769799569938763}
   - component: {fileID: 8612607450125453361}
   - component: {fileID: 8612607450125453366}
   - component: {fileID: 8612607450125453367}
@@ -38,6 +39,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &6549769799569938763
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8615668006213966562}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9334ccda1eb546c43bb1f7666941ef46, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!195 &8612607450125453361
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -71,9 +92,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.57461816
-  m_Height: 1.7428318
+  m_Height: 2.0192752
   m_Direction: 1
-  m_Center: {x: 0, y: 0.64030427, z: -0.02495879}
+  m_Center: {x: 0, y: 0.7785258, z: -0.02495879}
 --- !u!54 &8612607450125453367
 Rigidbody:
   m_ObjectHideFlags: 0

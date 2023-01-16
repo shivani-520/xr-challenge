@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent agent;
 
     EnemyHealth health;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class EnemyController : MonoBehaviour
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         health = GetComponent<EnemyHealth>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -54,6 +56,7 @@ public class EnemyController : MonoBehaviour
     {
         if(other.gameObject.tag == "Bullet")
         {
+            anim.SetTrigger("Hit");
             health.TakeDamage(1f);
         }
     }

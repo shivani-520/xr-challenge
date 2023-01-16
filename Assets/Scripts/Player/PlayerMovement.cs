@@ -13,9 +13,11 @@ public class PlayerMovement : MonoBehaviour
     public Crosshair crosshairs;
 
     [Header("Player Weapon")]
-    Weapon weapon;
-    public float fireRate = 1f;
-    private float nextFire;
+    GunController weapon;
+
+    public Transform spawnPoint;
+
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
         mainCamera = Camera.main;
 
-        weapon = GetComponentInChildren<Weapon>();
+        weapon = GetComponentInChildren<GunController>();
     }
 
     // Update is called once per frame
@@ -33,9 +35,8 @@ public class PlayerMovement : MonoBehaviour
         PlayerMove();
         PlayerLook();
 
-        if(Input.GetButton("Fire1") && Time.time > nextFire)
+        if(Input.GetButton("Fire1"))
         {
-            nextFire = Time.time + fireRate;
             weapon.StartFiring();
         }
         if(Input.GetButtonUp("Fire1"))
@@ -46,14 +47,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayerMove()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 movement = new Vector3(horizontal, 0f, vertical);
+        Vector3 moveInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 moveVelocity = moveInput.normalized * moveSpeed;
 
-        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        rb.MovePosition(rb.position + moveVelocity * Time.deltaTime);
 
-        anim.SetFloat("InputX", movement.x);
-        anim.SetFloat("InputZ", movement.z);
+        anim.SetFloat("InputX", moveVelocity.x);
+        anim.SetFloat("InputZ", moveVelocity.z);
     }
 
     private void PlayerLook()
@@ -64,12 +64,21 @@ public class PlayerMovement : MonoBehaviour
 
         if(groundPlane.Raycast(cameraRay, out rayLength))
         {
-            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+            Vector3 lookPoint = cameraRay.GetPoint(rayLength);
+            Vector3 heightCorrection = new Vector3(lookPoint.x, transform.position.y, lookPoint.z);
 
-            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+            transform.LookAt(heightCorrection);
 
-            crosshairs.transform.position = pointToLook;
+            crosshairs.transform.position = lookPoint;
             crosshairs.DetectTarget(cameraRay);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Door")
+        {
+            transform.position = spawnPoint.position;
         }
     }
 
