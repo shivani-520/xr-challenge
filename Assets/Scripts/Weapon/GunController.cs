@@ -38,9 +38,5 @@ public class GunController : MonoBehaviour
 
     }
 
-    public float GunHeight
-    {
-        get{ return firePoint.position.y; }
-    }
     
 }

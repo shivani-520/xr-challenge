@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     private Animator anim;
     private Camera mainCamera;
+    Vector3 moveVelocity;
 
     [Header("Crosshair")]
     public Crosshair crosshairs;
@@ -45,21 +46,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + moveVelocity * Time.deltaTime);
+    }
+
     private void PlayerMove()
     {
         Vector3 moveInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        Vector3 moveVelocity = moveInput.normalized * moveSpeed;
+        moveVelocity = moveInput.normalized * moveSpeed;
 
-        rb.MovePosition(rb.position + moveVelocity * Time.deltaTime);
-
-        anim.SetFloat("InputX", moveVelocity.x);
-        anim.SetFloat("InputZ", moveVelocity.z);
     }
 
     private void PlayerLook()
     {
         Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
-        Plane groundPlane = new Plane(Vector3.up, Vector3.up * weapon.GunHeight);
+        Plane groundPlane = new Plane(Vector3.up, Vector3.up);
         float rayLength;
 
         if(groundPlane.Raycast(cameraRay, out rayLength))
