@@ -16,10 +16,10 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (waveIsDone == true)
+        if (waveIsDone == true && gameObject != null)
         {
             StartCoroutine(EnemySpawn());
-        }
+        } else { return; }
     }
 
     IEnumerator EnemySpawn()
@@ -29,7 +29,6 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             Instantiate(enemyType[Random.Range(0, enemyType.Length)], spawnPoints[i].position, Quaternion.identity);
-
             yield return new WaitForSeconds(spawnRate);
         }
 

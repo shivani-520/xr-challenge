@@ -9,34 +9,44 @@ public class EnemyController : MonoBehaviour
 
     Transform target;
     NavMeshAgent agent;
-
-    EnemyHealth health;
     Animator anim;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
-        health = GetComponent<EnemyHealth>();
         anim = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        anim.SetTrigger("Spawn");
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
-
-        if(distance <= lookRadius)
+        if (target != null)
         {
-            agent.SetDestination(target.position);
+            float distance = Vector3.Distance(target.position, transform.position);
 
-            if(distance <= agent.stoppingDistance)
+            if (distance <= lookRadius)
             {
-                //attack target
-                FaceTarget();
+                agent.SetDestination(target.position);
+
+                if (distance <= agent.stoppingDistance)
+                {
+
+                    FaceTarget();
+                }
             }
         }
+        else { return; }
+
+
+
+
     }
 
     void FaceTarget()
@@ -46,18 +56,11 @@ public class EnemyController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Bullet")
-        {
-            anim.SetTrigger("Hit");
-            health.TakeDamage(1f);
-        }
-    }
 }
