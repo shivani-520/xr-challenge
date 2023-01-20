@@ -11,13 +11,13 @@ public class EnemyHealth : MonoBehaviour
 
     public HealthBar healthBar;
 
-    Animator anim;
-
     public GameObject deathEffect;
+
+    private EnemyType enemyType;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        enemyType = GetComponent<EnemyType>();
     }
 
     // Start is called before the first frame update
@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            RandomlyGenerateStar(Random.Range(0, 10));
+            RandomlyGenerateStar(Random.Range(0, 5));
             GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
             Destroy(effect, 1f);
             Destroy(gameObject);
@@ -59,7 +59,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
-            anim.SetTrigger("Hit");
+            enemyType.CorrectAnimation();
             TakeDamage(20f);
         }
     }

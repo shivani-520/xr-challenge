@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 243874604748828666}
   - component: {fileID: 243874604748828669}
   - component: {fileID: 243874604748828664}
+  - component: {fileID: -4485051612610726341}
   m_Layer: 7
   m_Name: MediumEnemy
   m_TagString: Enemy
@@ -142,6 +143,19 @@ MonoBehaviour:
   healthBar: {fileID: 8960405884823249261}
   deathEffect: {fileID: 4952186453127528294, guid: 0c7404b31d9ffbf44b9a424e08ab8896,
     type: 3}
+--- !u!114 &-4485051612610726341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249186814655626543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e68ecdeb08335f44a09ae4c5919b569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatTypeIsThisEnemy: 1
 --- !u!1 &352548372547803318
 GameObject:
   m_ObjectHideFlags: 0

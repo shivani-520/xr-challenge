@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 3408244213472157192}
   - component: {fileID: 3408244213472157199}
   - component: {fileID: 3408244213472157194}
+  - component: {fileID: 4051104359445469692}
   m_Layer: 7
   m_Name: EasyEnemy
   m_TagString: Enemy
@@ -360,6 +361,20 @@ MonoBehaviour:
   healthBar: {fileID: 5798154762343321759}
   deathEffect: {fileID: 4952186453127528294, guid: 0c7404b31d9ffbf44b9a424e08ab8896,
     type: 3}
+--- !u!114 &4051104359445469692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3412502230031486173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e68ecdeb08335f44a09ae4c5919b569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatTypeIsThisEnemy: 0
+  enemyAnimator: {fileID: 0}
 --- !u!1 &4258373323526685743
 GameObject:
   m_ObjectHideFlags: 0
