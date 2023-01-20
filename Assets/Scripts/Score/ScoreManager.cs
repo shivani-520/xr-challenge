@@ -10,6 +10,8 @@ public class ScoreManager : MonoBehaviour
 
     public static ScoreManager instance;
 
+    public int scoreForLevel;
+
     private void Awake()
     {
         instance = this;
@@ -20,6 +22,11 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         scoreText.text = scoreCount.ToString("STARS 0");
+
+        if(scoreCount >= scoreForLevel)
+        {
+            //Animate the finish door
+        }
     }
 
 }
