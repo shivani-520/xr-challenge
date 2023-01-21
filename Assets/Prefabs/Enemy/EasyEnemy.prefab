@@ -255,6 +255,7 @@ Transform:
   m_Children:
   - {fileID: 6263215961643333967}
   - {fileID: 5798154762343321752}
+  - {fileID: 3240999617765919186}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -342,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc152c3eefda4d145b67206799239cdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 10
+  lookRadius: 20
 --- !u!114 &3408244213472157194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +362,7 @@ MonoBehaviour:
   healthBar: {fileID: 5798154762343321759}
   deathEffect: {fileID: 6958039055404661736, guid: 68e605b01c0a2ef44b9393010145de5b,
     type: 3}
+  starSpawn: {fileID: 3240999617765919186}
 --- !u!114 &4051104359445469692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +439,37 @@ Transform:
   - {fileID: 7186593366434509153}
   m_Father: {fileID: 6524074135546004138}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5555084978453883238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3240999617765919186}
+  m_Layer: 7
+  m_Name: StarSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3240999617765919186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5555084978453883238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3408244213472157197}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5782263817115220644
 GameObject:

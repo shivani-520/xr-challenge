@@ -15,6 +15,8 @@ public class EnemyHealth : MonoBehaviour
 
     private EnemyType enemyType;
 
+    public Transform starSpawn;
+
     private void Awake()
     {
         enemyType = GetComponent<EnemyType>();
@@ -47,7 +49,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if(Random.Range(0, 1) < probability)
         {
-            Instantiate(pickUp, transform.position, transform.rotation);
+            Instantiate(pickUp, starSpawn.position, starSpawn.rotation);
         }
         else
         {
