@@ -359,7 +359,7 @@ MonoBehaviour:
   currentHealth: 0
   pickUp: {fileID: 1942245548449254, guid: 9c436d2eaf5a77e48a26bcbc3a68e3cb, type: 3}
   healthBar: {fileID: 5798154762343321759}
-  deathEffect: {fileID: 4952186453127528294, guid: 0c7404b31d9ffbf44b9a424e08ab8896,
+  deathEffect: {fileID: 6958039055404661736, guid: 68e605b01c0a2ef44b9393010145de5b,
     type: 3}
 --- !u!114 &4051104359445469692
 MonoBehaviour:
@@ -374,7 +374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatTypeIsThisEnemy: 0
-  enemyAnimator: {fileID: 0}
 --- !u!1 &4258373323526685743
 GameObject:
   m_ObjectHideFlags: 0

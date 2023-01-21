@@ -45,7 +45,7 @@ public class EnemyHealth : MonoBehaviour
 
     void RandomlyGenerateStar(int probability)
     {
-        if(Random.Range(0, 10) < probability)
+        if(Random.Range(0, 1) < probability)
         {
             Instantiate(pickUp, transform.position, transform.rotation);
         }

@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 881167743}
   scoreCount: 0
-  scoreForLevel: 5
+  scoreForLevel: 10
   finishDoor: {fileID: 2021935957}
 --- !u!1 &126756596
 GameObject:
@@ -5869,6 +5869,37 @@ Transform:
   m_Father: {fileID: 890013106}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &586257757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 586257758}
+  m_Layer: 0
+  m_Name: Spawnpoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &586257758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586257757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 662327116}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &662327114
 GameObject:
   m_ObjectHideFlags: 0
@@ -5900,8 +5931,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoints:
   - {fileID: 1732222433}
+  - {fileID: 586257758}
   enemyType:
   - {fileID: 3412502230031486173, guid: 83dfd307833dc7643af74bae40f81157, type: 3}
+  - {fileID: 249186814655626543, guid: 7c4100a195581144eaea590e81c86ef0, type: 3}
+  - {fileID: 3141663929510566942, guid: 8525e2277b1f0474188a0992038b6ac3, type: 3}
   spawnRate: 1
   timeBetweenWaves: 3
 --- !u!4 &662327116
@@ -5917,6 +5951,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1732222433}
+  - {fileID: 586257758}
   m_Father: {fileID: 982732329}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6999,7 +7034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732222432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.17, y: 0, z: 3.68}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7421,7 +7456,7 @@ GameObject:
   - component: {fileID: 2021935959}
   m_Layer: 0
   m_Name: FInishDoor
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

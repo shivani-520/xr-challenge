@@ -12,6 +12,8 @@ public class ScoreManager : MonoBehaviour
 
     public int scoreForLevel;
 
+    public GameObject finishDoor;
+
     private void Awake()
     {
         instance = this;
@@ -25,7 +27,7 @@ public class ScoreManager : MonoBehaviour
 
         if(scoreCount >= scoreForLevel)
         {
-            //Animate the finish door
+            finishDoor.SetActive(true);
         }
     }
 

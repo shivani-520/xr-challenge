@@ -10,6 +10,7 @@ public class EnemyType : MonoBehaviour
 
     private Animator enemyAnimator;
 
+
     private void Awake()
     {
         enemyAnimator = GetComponent<Animator>();
