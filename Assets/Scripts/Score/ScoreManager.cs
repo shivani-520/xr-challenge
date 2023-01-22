@@ -12,9 +12,9 @@ public class ScoreManager : MonoBehaviour
 
     public int scoreForLevel;
 
-    public GameObject finishDoor;
-
     public EnemySpawner enemySpawner;
+
+    public Animator doorAnimator;
 
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
 
         if(scoreCount >= scoreForLevel)
         {
-            finishDoor.SetActive(true);
+            doorAnimator.SetTrigger("Finish");
             enemySpawner.enabled = false;
         }
     }

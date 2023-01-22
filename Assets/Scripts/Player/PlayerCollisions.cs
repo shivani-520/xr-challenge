@@ -48,7 +48,7 @@ public class PlayerCollisions : MonoBehaviour
 
         }
 
-        if(other.gameObject.tag == "Door")
+        if(other.gameObject.tag == "Door" && score.scoreCount >= score.scoreForLevel)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
@@ -58,10 +58,7 @@ public class PlayerCollisions : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            Vector3 hitDirection = collision.transform.position - transform.position;
-            hitDirection = hitDirection.normalized;
-
-            health.TakeDamage(1f, hitDirection);
+            health.TakeDamage(1f);
 
             anim.SetTrigger("Hit");
         }

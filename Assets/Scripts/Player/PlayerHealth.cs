@@ -35,11 +35,9 @@ public class PlayerHealth : MonoBehaviour
         healthText.text = currentHealth.ToString("HEALTH 0");
     }
 
-    public void TakeDamage(float amount, Vector3 direction)
+    public void TakeDamage(float amount)
     {
         currentHealth -= amount;
-        
-        controller.PlayerKnockBack(direction);
 
         textAnim.SetTrigger("HealthBounce");
 

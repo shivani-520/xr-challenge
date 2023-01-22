@@ -14,13 +14,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Door
   - Water
   - UI
   - Ground
   - Enemy
   - PostProcessing
-  - 
+  - Bullet
   - 
   - 
   - 

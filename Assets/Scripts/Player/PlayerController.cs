@@ -8,11 +8,12 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     private Camera mainCamera;
     Vector3 moveVelocity;
+
+    [Header("Dash")]
     public float dashSpeed;
     bool isDashing;
-    public float knockBackForce;
-    public float knockBackTime;
-    private float knockBackCounter;
+    bool canDash = true;
+    public GameObject dashEffect;
 
     [Header("Crosshair")]
     public Crosshair crosshairs;
@@ -35,20 +36,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(knockBackCounter <= 0)
-        {
-            PlayerMove();
-            PlayerLook();
+        PlayerMove();
+        PlayerLook();
 
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                isDashing = true;
-            }
-        }
-        else
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
-            knockBackCounter -= Time.deltaTime;
+            StartCoroutine(Dash());
+
+            GameObject effect = Instantiate(dashEffect, transform.position, transform.rotation);
+            Destroy(effect, 1f);
         }
+
+        if (isDashing) return;
 
         if (Input.GetButton("Fire1"))
         {
@@ -63,12 +62,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+        if (isDashing) return;
 
-        if(isDashing)
-        {
-            PlayerDash();
-        }
+        rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
     }
 
     private void PlayerMove()
@@ -95,19 +91,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void PlayerDash()
+    IEnumerator Dash()
     {
         rb.AddForce(transform.forward * dashSpeed, ForceMode.Impulse);
+        isDashing = true;
+        canDash = false;
+        yield return new WaitForSeconds(0.5f);
         isDashing = false;
+        canDash = false;
+        yield return new WaitForSeconds(1f);
+        canDash = true;
     }
-
-    public void PlayerKnockBack(Vector3 direction)
-    {
-        knockBackCounter = knockBackTime;
-
-        lookPoint = direction * knockBackForce;
-        lookPoint.y = knockBackForce;
-    }
-
 
 }
