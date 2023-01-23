@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.27450982, g: 0.1254902, b: 0.27450982, a: 1}
+  m_AmbientSkyColor: {r: 0.43527526, g: 0.29701135, b: 0.20483541, a: 1}
   m_AmbientEquatorColor: {r: 0.033333335, g: 0.015686275, b: 0.033333335, a: 1}
   m_AmbientGroundColor: {r: 0.16513224, g: 0.07618539, b: 0.16513224, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: baef7505b9e48404cb74585601f49ff9, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 52fcefd712182d743a781fde12426775, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.5171874, g: 0.37541887, b: 0.5572844, a: 1}
+  m_IndirectSpecularColor: {r: 0.12566608, g: 0.23710486, b: 0.352451, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -170,7 +170,6 @@ MonoBehaviour:
   scoreText: {fileID: 881167743}
   scoreCount: 0
   scoreForLevel: 5
-  finishDoor: {fileID: 0}
   enemySpawner: {fileID: 662327115}
   doorAnimator: {fileID: 0}
 --- !u!1 &126756596
@@ -771,7 +770,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e313a9906ec975f41bd49555fc06cb58, type: 2}
+  - {fileID: 2100000, guid: ef1487c0a59836d4385b65ec5fdca5dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2479,7 +2478,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.0956518, b: 0, a: 1}
   m_Intensity: 20
   m_Range: 20
   m_SpotAngle: 30
