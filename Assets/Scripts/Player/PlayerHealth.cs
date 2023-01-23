@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Header("Assign Health")]
     public float maxHealth;
     public float currentHealth;
 
@@ -13,6 +15,8 @@ public class PlayerHealth : MonoBehaviour
     public GameObject playerDeathEffect;
 
     public Transform deathSpawn;
+
+    public Animator textAnim;
 
     // Start is called before the first frame update
     void Start()

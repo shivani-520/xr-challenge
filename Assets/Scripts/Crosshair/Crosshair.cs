@@ -5,9 +5,10 @@ using UnityEngine;
 public class Crosshair : MonoBehaviour
 {
     public LayerMask targetMask;
+
     public SpriteRenderer dot;
     public Color dotHightlightColour;
-    Color originalDotColour;
+    private Color originalDotColour;
 
     private void Start()
     {

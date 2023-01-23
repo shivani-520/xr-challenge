@@ -122,6 +122,154 @@ Transform:
   m_Father: {fileID: 9082785002088795774}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1376581167016619009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1376581167016619008}
+  - component: {fileID: 1376581167016619011}
+  m_Layer: 0
+  m_Name: RapidWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1376581167016619008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376581167016619009}
+  m_LocalRotation: {x: 0.0005495781, y: 0.9999998, z: -0.00019507403, w: 1.6016773e-15}
+  m_LocalPosition: {x: 0.18343186, y: 0.752212, z: 0.106988214}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9038895118355866335}
+  - {fileID: 6148926642680982943}
+  - {fileID: 6148926641597286717}
+  m_Father: {fileID: 6148926641625678252}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1376581167016619011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376581167016619009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63651b57746564f4896fa47cdc74a0e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0.15
+  bulletSpeed: 60
+  firePoint:
+  - {fileID: 6148926642680982943}
+  muzzleFlashPrefab: {fileID: 6148926641597286718}
+  bulletPrefab: {fileID: 7916053221274044254, guid: 4513b4bc87cde9c4fa9a42609675accb,
+    type: 3}
+--- !u!1 &1376581167974577864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1376581167974577867}
+  - component: {fileID: 1376581167974577866}
+  m_Layer: 0
+  m_Name: Spot Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1376581167974577867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376581167974577864}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.062, y: 1.927, z: 0.087}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6148926641625678252}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!108 &1376581167974577866
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376581167974577864}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1.5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &4275386137043604398
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +300,7 @@ Transform:
   m_LocalScale: {x: 0.20291236, y: 0.20291238, z: 0.20291235}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6148926642673722970}
+  m_Father: {fileID: 1376581167016619008}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &6249918813503310058
@@ -331,7 +479,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6148926642147454387}
-  m_Father: {fileID: 6148926642673722970}
+  m_Father: {fileID: 1376581167016619008}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!198 &6148926641597286715
@@ -5206,8 +5354,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5903063896313972798}
-  - {fileID: 6148926642673722970}
+  - {fileID: 1376581167016619008}
   - {fileID: 6148926641121155398}
+  - {fileID: 1376581167974577867}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5275,10 +5424,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   dashSpeed: 5
+  rb: {fileID: 6148926641625678250}
   dashEffect: {fileID: 8527600919846810096, guid: e1df54f037c7c9e45837dc5594a6d696,
     type: 3}
   crosshairs: {fileID: 0}
-  rb: {fileID: 6148926641625678250}
 --- !u!114 &6148926641625678248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5309,7 +5458,6 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   healthText: {fileID: 0}
-  textAnim: {fileID: 0}
   playerDeathEffect: {fileID: 4952186453127528294, guid: 0c7404b31d9ffbf44b9a424e08ab8896,
     type: 3}
   deathSpawn: {fileID: 6148926641121155398}
@@ -5407,61 +5555,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &6148926642673722971
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6148926642673722970}
-  - component: {fileID: 6148926642673722969}
-  m_Layer: 0
-  m_Name: Weapon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6148926642673722970
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6148926642673722971}
-  m_LocalRotation: {x: 0.0005495781, y: 0.9999998, z: -0.00019507403, w: 1.6016773e-15}
-  m_LocalPosition: {x: 0.18343186, y: 0.752212, z: 0.106988214}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 9038895118355866335}
-  - {fileID: 6148926642680982943}
-  - {fileID: 6148926641597286717}
-  m_Father: {fileID: 6148926641625678252}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6148926642673722969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6148926642673722971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63651b57746564f4896fa47cdc74a0e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isFiring: 0
-  muzzleFlash: {fileID: 6148926641597286718}
-  fireRate: 0.15
-  firePoint:
-  - {fileID: 6148926642680982943}
-  bulletPrefab: {fileID: 7916053221274044254, guid: 4513b4bc87cde9c4fa9a42609675accb,
-    type: 3}
-  bulletSpeed: 60
 --- !u!1 &6148926642680982912
 GameObject:
   m_ObjectHideFlags: 0
@@ -5490,7 +5583,7 @@ Transform:
   m_LocalScale: {x: 0.20291233, y: 0.20291238, z: 0.20291232}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6148926642673722970}
+  m_Father: {fileID: 1376581167016619008}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &6530278807957017220

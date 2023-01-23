@@ -5,13 +5,12 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
-
     public GameObject[] enemyType;
 
     public float spawnRate = 1f;
     public float timeBetweenWaves = 3f;
 
-    bool waveIsDone = true;
+    private bool waveIsDone = true;
 
     // Update is called once per frame
     void Update()

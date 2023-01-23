@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyType : MonoBehaviour
 {
     public enum EnemyTypes { Easy, Medium, Hard }
-
     public EnemyTypes whatTypeIsThisEnemy;
 
     private Animator enemyAnimator;

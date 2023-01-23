@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Player")]
     public float moveSpeed;
-    private Camera mainCamera;
-    Vector3 moveVelocity;
-
-    [Header("Dash")]
     public float dashSpeed;
-    bool isDashing;
-    bool canDash = true;
-    public GameObject dashEffect;
 
-    [Header("Crosshair")]
-    public Crosshair crosshairs;
-
-    [Header("Player Weapon")]
-    GunController weapon;
-
+    private Camera mainCamera;
     public Rigidbody rb;
-    Vector3 lookPoint;
+
+    private Vector3 moveVelocity;
+    private Vector3 lookPoint;
+
+    private bool isDashing;
+    private bool canDash = true;
+
+    public GameObject dashEffect;
+    public Crosshair crosshairs;
+    private GunController weapon;
 
     // Start is called before the first frame update
     void Start()

@@ -5,21 +5,21 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
     private bool isFiring = false;
-    public GameObject muzzleFlash;
 
+    private float nextShot;
     public float fireRate;
+    public float bulletSpeed;
 
     public Transform[] firePoint;
 
+    public GameObject muzzleFlashPrefab;
     public GameObject bulletPrefab;
-    public float bulletSpeed;
 
-    float nextShot;
 
     public void StartFiring()
     {
         isFiring = true;
-        muzzleFlash.SetActive(true);
+        muzzleFlashPrefab.SetActive(true);
 
         if(Time.time > nextShot)
         {
@@ -38,7 +38,7 @@ public class GunController : MonoBehaviour
     public void StopFiring()
     {
         isFiring = false;
-        muzzleFlash.SetActive(false);
+        muzzleFlashPrefab.SetActive(false);
 
     }
 

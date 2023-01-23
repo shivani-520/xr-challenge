@@ -5,16 +5,14 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TMP_Text scoreText;
-    public int scoreCount;
-
     public static ScoreManager instance;
-
-    public int scoreForLevel;
-
     public EnemySpawner enemySpawner;
 
+    public TMP_Text scoreText;
     public Animator doorAnimator;
+
+    public int scoreCount;
+    public int scoreForLevel;
 
     private void Awake()
     {

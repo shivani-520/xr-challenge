@@ -7,9 +7,9 @@ public class EnemyController : MonoBehaviour
 {
     public float lookRadius = 10f;
 
-    Transform target;
-    NavMeshAgent agent;
-    Animator anim;
+    private Transform target;
+    private NavMeshAgent agent;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Awake()

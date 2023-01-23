@@ -8,12 +8,10 @@ public class PlayerCollisions : MonoBehaviour
     public GameObject[] star;
     public Pickup justCollidedWith;
 
-    ScoreManager score;
+    private ScoreManager score;
+    private PlayerHealth health;
 
-    PlayerHealth health;
-
-    Animator anim;
-
+    private Animator anim;
     public Animator textAnim;
 
     private void Start()
@@ -27,27 +25,30 @@ public class PlayerCollisions : MonoBehaviour
     {
         if(other.gameObject.tag == "Star")
         {
-            //Get the pickup I am colliding with
-            var stars = other.gameObject.GetComponent<Pickup>();
-            if (justCollidedWith == null) return;
-
-            //If the pickup is the one I have just collided with do nothing
-            if(stars == justCollidedWith)
+            if (other.gameObject.tag == "Star")
             {
-                justCollidedWith = null;
-                return;
+                //Get the pickup I am colliding with
+                var stars = other.gameObject.GetComponent<Pickup>();
+                if (justCollidedWith == null) return;
+
+                //If the pickup is the one I have just collided with do nothing
+                if (stars == justCollidedWith)
+                {
+                    justCollidedWith = null;
+                    return;
+                }
+
+                //Play pickup animation and destroy
+                stars.GetPickedUp();
+                score.scoreCount += 1;
+
+                textAnim.SetTrigger("ScoreIncrease");
+                textAnim.SetTrigger("HealthIncrease");
+
+                health.currentHealth++;
+
+                Destroy(other.gameObject, 0.5f);
             }
-
-            //Play pickup animation and destroy
-            stars.GetPickedUp();
-            score.scoreCount += 1;
-            textAnim.SetTrigger("ScoreIncrease");
-            textAnim.SetTrigger("HealthIncrease");
-            health.currentHealth++;
-
-            Destroy(other.gameObject, 0.5f);
-
-
         }
 
         if(other.gameObject.tag == "Door" && score.scoreCount >= score.scoreForLevel)

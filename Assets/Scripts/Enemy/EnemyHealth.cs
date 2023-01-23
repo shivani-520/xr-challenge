@@ -8,17 +8,16 @@ public class EnemyHealth : MonoBehaviour
     public float currentHealth;
 
     public GameObject pickUp;
-
-    public HealthBar healthBar;
-
     public GameObject deathEffect;
 
+    public HealthBar healthBar;
     private EnemyType enemyType;
 
-    public Transform starSpawn;
+    private PickupManager pickUpManager;
 
     private void Awake()
     {
+        pickUpManager = PickupManager.instance;
         enemyType = GetComponent<EnemyType>();
     }
 
@@ -38,22 +37,10 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            RandomlyGenerateStar(Random.Range(0, 5));
+            pickUpManager.RandomlyGenerateStar(Random.Range(0, 5), transform);
             GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
             Destroy(effect, 1f);
             Destroy(gameObject);
-        }
-    }
-
-    void RandomlyGenerateStar(int probability)
-    {
-        if(Random.Range(0, 1) < probability)
-        {
-            Instantiate(pickUp, starSpawn.position, starSpawn.rotation);
-        }
-        else
-        {
-            return;
         }
     }
 

@@ -37,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 8846625612187404477}
   - {fileID: 8960405884823249258}
-  - {fileID: 7273789409358123226}
+  - {fileID: 42924411505289502}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -140,11 +140,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   currentHealth: 0
+  starSpawn: {fileID: 42924411505289502}
   pickUp: {fileID: 1942245548449254, guid: 9c436d2eaf5a77e48a26bcbc3a68e3cb, type: 3}
-  healthBar: {fileID: 8960405884823249261}
   deathEffect: {fileID: 6958039055404661736, guid: 313fd984a88a61c489c38af94bdb6124,
     type: 3}
-  starSpawn: {fileID: 7273789409358123226}
+  healthBar: {fileID: 8960405884823249261}
 --- !u!114 &-4485051612610726341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,37 +280,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.27125108, y: -0.0003888607, z: 0.0031070411}
     m_Extent: {x: 0.27533257, y: 0.109069586, z: 0.10935679}
   m_DirtyAABB: 0
---- !u!1 &821374001649878795
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7273789409358123226}
-  m_Layer: 7
-  m_Name: StarSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7273789409358123226
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821374001649878795}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 243874604748828671}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1353269069873748612
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +535,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7029890405344258421}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8799193027707222168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42924411505289502}
+  m_Layer: 7
+  m_Name: StarSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &42924411505289502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799193027707222168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 243874604748828671}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8939738626791312214
 GameObject:
