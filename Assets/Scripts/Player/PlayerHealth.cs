@@ -8,20 +8,11 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
 
-    PlayerController controller;
-
     public TMP_Text healthText;
-
-    public Animator textAnim;
 
     public GameObject playerDeathEffect;
 
     public Transform deathSpawn;
-
-    private void Awake()
-    {
-        controller = GetComponent<PlayerController>();
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +29,6 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
-
-        textAnim.SetTrigger("HealthBounce");
 
         if (currentHealth <= 0)
         {

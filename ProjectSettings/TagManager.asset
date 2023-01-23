@@ -10,6 +10,7 @@ TagManager:
   - Door
   - Star
   - Enemy
+  - TwoShot
   layers:
   - Default
   - TransparentFX

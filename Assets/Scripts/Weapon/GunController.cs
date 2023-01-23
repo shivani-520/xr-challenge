@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    public bool isFiring = false;
+    private bool isFiring = false;
     public GameObject muzzleFlash;
 
     public float fireRate;
@@ -30,6 +30,7 @@ public class GunController : MonoBehaviour
                 GameObject bullet = Instantiate(bulletPrefab, firePoint[i].position, firePoint[i].rotation);
                 bullet.GetComponent<Rigidbody>().velocity = firePoint[i].forward * bulletSpeed;
             }
+
         }
 
     }
@@ -41,5 +42,5 @@ public class GunController : MonoBehaviour
 
     }
 
-    
+
 }

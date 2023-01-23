@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
             Destroy(effect, 1f);
         }
 
+
         if (isDashing) return;
 
         if (Input.GetButton("Fire1"))

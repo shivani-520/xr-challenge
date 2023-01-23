@@ -41,7 +41,8 @@ public class PlayerCollisions : MonoBehaviour
             //Play pickup animation and destroy
             stars.GetPickedUp();
             score.scoreCount += 1;
-            textAnim.SetTrigger("ScoreBounce");
+            textAnim.SetTrigger("ScoreIncrease");
+            textAnim.SetTrigger("HealthIncrease");
             health.currentHealth++;
 
             Destroy(other.gameObject, 0.5f);
@@ -60,7 +61,7 @@ public class PlayerCollisions : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             health.TakeDamage(1f);
-
+            textAnim.SetTrigger("HealthDecrease");
             anim.SetTrigger("Hit");
         }
     }
