@@ -171,7 +171,7 @@ MonoBehaviour:
   scoreCount: 0
   scoreForLevel: 5
   enemySpawner: {fileID: 662327115}
-  doorAnimator: {fileID: 0}
+  doorAnimator: {fileID: 1760584460}
 --- !u!1 &126756596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2797,38 +2797,11 @@ PrefabInstance:
       propertyPath: textAnim
       value: 
       objectReference: {fileID: 291114806}
-    - target: {fileID: 6148926641625678250, guid: 670a3f4f0ba91c448a38d48b999290c1,
-        type: 3}
-      propertyPath: m_Mass
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6148926641625678251, guid: 670a3f4f0ba91c448a38d48b999290c1,
-        type: 3}
-      propertyPath: dashEcho
-      value: 
-      objectReference: {fileID: 5963127369946444897, guid: 7a15bf8b4743d2c44bacdc2e2b9dfbc9,
-        type: 3}
-    - target: {fileID: 6148926641625678251, guid: 670a3f4f0ba91c448a38d48b999290c1,
-        type: 3}
-      propertyPath: dashSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6148926641625678251, guid: 670a3f4f0ba91c448a38d48b999290c1,
-        type: 3}
-      propertyPath: dashTrail
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6148926641625678251, guid: 670a3f4f0ba91c448a38d48b999290c1,
         type: 3}
       propertyPath: crosshairs
       value: 
       objectReference: {fileID: 198983971}
-    - target: {fileID: 6148926641625678251, guid: 670a3f4f0ba91c448a38d48b999290c1,
-        type: 3}
-      propertyPath: dashEffect
-      value: 
-      objectReference: {fileID: 8527600919846810096, guid: e1df54f037c7c9e45837dc5594a6d696,
-        type: 3}
     - target: {fileID: 6148926641625678252, guid: 670a3f4f0ba91c448a38d48b999290c1,
         type: 3}
       propertyPath: m_RootOrder

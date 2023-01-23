@@ -9,7 +9,7 @@ public class GunController : MonoBehaviour
 
     public float fireRate;
 
-    public Transform firePoint;
+    public Transform[] firePoint;
 
     public GameObject bulletPrefab;
     public float bulletSpeed;
@@ -23,10 +23,13 @@ public class GunController : MonoBehaviour
 
         if(Time.time > nextShot)
         {
-            nextShot = Time.time + fireRate;
+            for (int i = 0; i < firePoint.Length; i++)
+            {
+                nextShot = Time.time + fireRate;
 
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * bulletSpeed;
+                GameObject bullet = Instantiate(bulletPrefab, firePoint[i].position, firePoint[i].rotation);
+                bullet.GetComponent<Rigidbody>().velocity = firePoint[i].forward * bulletSpeed;
+            }
         }
 
     }

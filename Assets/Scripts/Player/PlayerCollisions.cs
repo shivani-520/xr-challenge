@@ -42,6 +42,7 @@ public class PlayerCollisions : MonoBehaviour
             stars.GetPickedUp();
             score.scoreCount += 1;
             textAnim.SetTrigger("ScoreBounce");
+            health.currentHealth++;
 
             Destroy(other.gameObject, 0.5f);
 
