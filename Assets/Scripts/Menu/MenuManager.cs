@@ -5,16 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    public Animator transitionAnimator;
 
     public void StartButton()
     {
-        SceneManager.LoadScene("Level1");
-
+        StartCoroutine(Delay());
     }
 
     public void ExitButton()
     {
         Application.Quit();
+    }
+
+    IEnumerator Delay()
+    {
+        transitionAnimator.SetTrigger("end");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }

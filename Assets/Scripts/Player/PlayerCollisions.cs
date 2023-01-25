@@ -14,8 +14,13 @@ public class PlayerCollisions : MonoBehaviour
     private Animator anim;
     public Animator textAnim;
 
+    public GameObject floatingText;
+
+    private TransitionManager transitions;
+
     private void Start()
     {
+        transitions = TransitionManager.instance;
         score = ScoreManager.instance;
         health = GetComponent<PlayerHealth>();
         anim = GetComponent<Animator>();
@@ -25,35 +30,33 @@ public class PlayerCollisions : MonoBehaviour
     {
         if(other.gameObject.tag == "Star")
         {
-            if (other.gameObject.tag == "Star")
+            //Get the pickup I am colliding with
+            var stars = other.gameObject.GetComponent<Pickup>();
+            if (justCollidedWith == null) return;
+
+            //If the pickup is the one I have just collided with do nothing
+            if (stars == justCollidedWith)
             {
-                //Get the pickup I am colliding with
-                var stars = other.gameObject.GetComponent<Pickup>();
-                if (justCollidedWith == null) return;
-
-                //If the pickup is the one I have just collided with do nothing
-                if (stars == justCollidedWith)
-                {
-                    justCollidedWith = null;
-                    return;
-                }
-
-                //Play pickup animation and destroy
-                stars.GetPickedUp();
-                score.scoreCount += 1;
-
-                textAnim.SetTrigger("ScoreIncrease");
-                textAnim.SetTrigger("HealthIncrease");
-
-                health.currentHealth++;
-
-                Destroy(other.gameObject, 0.5f);
+                justCollidedWith = null;
+                return;
             }
+
+            //Play pickup animation and destroy
+            stars.GetPickedUp();
+            Instantiate(floatingText, other.transform.position, Quaternion.identity);
+            score.scoreCount += 1;
+
+            textAnim.SetTrigger("ScoreIncrease");
+            textAnim.SetTrigger("HealthIncrease");
+
+            health.currentHealth++;
+
+            Destroy(other.gameObject, 0.5f);
         }
 
         if(other.gameObject.tag == "Door" && score.scoreCount >= score.scoreForLevel)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            transitions.StartCoroutine(transitions.NextScene());
         }
     }
 

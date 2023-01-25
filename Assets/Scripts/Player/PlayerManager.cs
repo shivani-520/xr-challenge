@@ -7,9 +7,16 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
 
+    private TransitionManager transitions;
+
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        transitions = TransitionManager.instance;
     }
 
     public GameObject player;
@@ -18,13 +25,8 @@ public class PlayerManager : MonoBehaviour
     {
         if(player == null)
         {
-            StartCoroutine(Delay());
+            transitions.StartCoroutine(transitions.SameScene());
         }
     }
 
-    IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
 }

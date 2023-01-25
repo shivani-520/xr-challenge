@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 1490098590}
   - component: {fileID: 1490098589}
   m_Layer: 5
-  m_Name: START
+  m_Name: RESTART
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -690,7 +690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 28, y: -36}
+  m_AnchoredPosition: {x: -32, y: -36}
   m_SizeDelta: {x: 774.1343, y: 193.5336}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1490098589
@@ -769,7 +769,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: START
+  m_text: RESTART
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f24662cb3cd10f49bb7f5f429e9cfa8, type: 2}
   m_sharedMaterial: {fileID: 7242484451809070260, guid: 1f24662cb3cd10f49bb7f5f429e9cfa8,

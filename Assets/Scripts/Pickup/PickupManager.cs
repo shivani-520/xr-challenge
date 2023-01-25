@@ -12,12 +12,14 @@ public class PickupManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
 
+
+    }
 
 
     public void RandomlyGenerateStar(int probability, Transform spawnPoint)
     {
+
         if (Random.Range(0, 1) < probability)
         {
             Instantiate(pickUp, spawnPoint.position, spawnPoint.rotation);

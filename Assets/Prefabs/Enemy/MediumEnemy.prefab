@@ -140,11 +140,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   currentHealth: 0
-  starSpawn: {fileID: 42924411505289502}
   pickUp: {fileID: 1942245548449254, guid: 9c436d2eaf5a77e48a26bcbc3a68e3cb, type: 3}
   deathEffect: {fileID: 6958039055404661736, guid: 313fd984a88a61c489c38af94bdb6124,
     type: 3}
   healthBar: {fileID: 8960405884823249261}
+  starSpawn: {fileID: 42924411505289502}
 --- !u!114 &-4485051612610726341
 MonoBehaviour:
   m_ObjectHideFlags: 0
