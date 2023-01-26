@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyType : MonoBehaviour
 {
-    public enum EnemyTypes { Easy, Medium, Hard }
+    public enum EnemyTypes { Easy, Medium, Hard, Boss }
     public EnemyTypes whatTypeIsThisEnemy;
 
     private Animator enemyAnimator;
-
+    public Animator bossAnimator;
 
     private void Awake()
     {
@@ -31,6 +31,10 @@ public class EnemyType : MonoBehaviour
                 enemyAnimator.SetTrigger("HardHit");
                 Debug.Log("HardEnemy");
                 break;
+            case EnemyTypes.Boss:
+                bossAnimator.SetTrigger("Hit");
+                Debug.Log("BossEnemy");
+                return;
             default:
                 break;
         }

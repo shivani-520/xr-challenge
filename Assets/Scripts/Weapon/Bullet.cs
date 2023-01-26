@@ -6,8 +6,12 @@ public class Bullet : MonoBehaviour
 {
     public float life = 3f;
 
+    public AudioClip gunShot;
+
     private void Awake()
     {
+        SoundManager.instance.PlayerSound(gunShot);
+
         Destroy(gameObject, life);
     }
 

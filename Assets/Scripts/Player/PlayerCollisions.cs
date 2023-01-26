@@ -18,6 +18,8 @@ public class PlayerCollisions : MonoBehaviour
 
     private TransitionManager transitions;
 
+    public AudioClip coinCollect;
+
     private void Start()
     {
         transitions = TransitionManager.instance;
@@ -50,6 +52,8 @@ public class PlayerCollisions : MonoBehaviour
             textAnim.SetTrigger("HealthIncrease");
 
             health.currentHealth++;
+
+            SoundManager.instance.PlayerSound(coinCollect);
 
             Destroy(other.gameObject, 0.5f);
         }

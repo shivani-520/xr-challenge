@@ -240,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3972034977026048608}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.1107, y: -0.056, z: -0.265}
+  m_LocalPosition: {x: 0.0408, y: -0.1194, z: -0.265}
   m_LocalScale: {x: 0.20291233, y: 0.20291238, z: 0.20291232}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -483,6 +483,7 @@ MonoBehaviour:
   textAnim: {fileID: 0}
   floatingText: {fileID: 2770494395519076760, guid: 959087991fded4b40a53336823db6e88,
     type: 3}
+  coinCollect: {fileID: 8300000, guid: a3c82e1f44608db4a8b008ef0e843583, type: 3}
 --- !u!114 &6017123159934665399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,7 +521,7 @@ MonoBehaviour:
   crosshairPos: {fileID: 3605905355484101563}
   dashEffect: {fileID: 8527600919846810096, guid: e1df54f037c7c9e45837dc5594a6d696,
     type: 3}
-  dashSpeed: 2
+  dashSpeed: 4
 --- !u!114 &6606612211557690452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,6 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63651b57746564f4896fa47cdc74a0e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFiring: 0
   fireRate: 0.15
   bulletSpeed: 80
   firePoint:
@@ -998,7 +1000,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8053191342393651402}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.0384, y: -0.056, z: -0.265}
+  m_LocalPosition: {x: 0.0408, y: 0.0204, z: -0.265}
   m_LocalScale: {x: 0.20291233, y: 0.20291238, z: 0.20291232}
   m_ConstrainProportionsScale: 0
   m_Children: []

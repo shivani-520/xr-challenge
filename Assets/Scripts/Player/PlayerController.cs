@@ -5,87 +5,127 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed;
-    public float dashSpeed;
+    public float speed;
+    private Rigidbody rb;
+
+    public bool isGamepad;
+
+    private Vector2 move;
+    private Vector2 aim;
+    private float controllerDeadzone = 0.1f;
+    private float gamePadRotateSmoothing = 1000f;
+
+    private InputMaster controls;
+    private PlayerInput playerInput;
+
 
     private Camera mainCamera;
-    public Rigidbody rb;
-
-    private Vector3 moveVelocity;
     private Vector3 lookPoint;
-
-    private bool isDashing;
-    private bool canDash = true;
-
-    public GameObject dashEffect;
     public Crosshair crosshairs;
+    public Transform crosshairPos;
+
     private GunController weapon;
 
-    // Start is called before the first frame update
-    void Start()
+    private bool isDashing = false;
+    private bool canDash = true;
+    public GameObject dashEffect;
+    public float dashSpeed;
+
+    private void Awake()
     {
-
         mainCamera = Camera.main;
-
+        controls = new InputMaster();
+        playerInput = GetComponent<PlayerInput>();
+        rb = GetComponent<Rigidbody>();
         weapon = GetComponentInChildren<GunController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        PlayerMove();
-        PlayerLook();
+        controls.Enable();
+    }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+
+    private void Update()
+    {
+        HandleInput();
+        HandleMovement();
+        HandleRotation();
+
+        if (isDashing) return;
+    }
+
+    void HandleInput()
+    {
+        move = controls.Player.Move.ReadValue<Vector2>();
+        aim = controls.Player.Aim.ReadValue<Vector2>();
+
+
+        controls.Player.Shoot.started += context => weapon.isFiring = true;
+        controls.Player.Shoot.canceled += context => weapon.isFiring = false;
+
+        controls.Player.Dash.performed += context => HandleDash();
+
+    }
+
+    void HandleMovement()
+    {
+        Vector3 movement = new Vector3(move.x, 0, move.y);
+        Vector3 moveVelocity = movement.normalized * speed;
+
+        rb.MovePosition(rb.position + moveVelocity * Time.deltaTime);
+
+    }
+
+    void HandleDash()
+    {
+        if(canDash)
         {
             StartCoroutine(Dash());
 
             GameObject effect = Instantiate(dashEffect, transform.position, transform.rotation);
             Destroy(effect, 1f);
         }
+    }
 
-
-        if (isDashing) return;
-
-        if (Input.GetButton("Fire1"))
+    void HandleRotation()
+    {
+        if(isGamepad)
         {
-            weapon.StartFiring();
+            if(Mathf.Abs(aim.x) > controllerDeadzone || Mathf.Abs(aim.y) > controllerDeadzone)
+            {
+                Vector3 playerDir = Vector3.right * aim.x + Vector3.forward * aim.y;
+                if(playerDir.sqrMagnitude > 0f)
+                {
+                    Quaternion newRot = Quaternion.LookRotation(playerDir, Vector3.up);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, newRot, gamePadRotateSmoothing * Time.deltaTime);
+                }
+
+                crosshairs.transform.position = crosshairPos.position;
+                //crosshairPos.position += Vector3.forward * 5 * Time.deltaTime;
+                
+            }
         }
-        if (Input.GetButtonUp("Fire1"))
+        else
         {
-            weapon.StopFiring();
-        }
+            Ray cameraRay = mainCamera.ScreenPointToRay(aim);
+            Plane groundPlane = new Plane(Vector3.up, Vector3.up);
+            float rayLength;
 
-    }
+            if (groundPlane.Raycast(cameraRay, out rayLength))
+            {
+                lookPoint = cameraRay.GetPoint(rayLength);
+                Vector3 heightCorrection = new Vector3(lookPoint.x, transform.position.y, lookPoint.z);
 
-    private void FixedUpdate()
-    {
-        if (isDashing) return;
+                transform.LookAt(heightCorrection);
 
-        rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
-    }
-
-    private void PlayerMove()
-    {
-        Vector3 moveInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        moveVelocity = moveInput.normalized * moveSpeed;
-    }
-
-    private void PlayerLook()
-    {
-        Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
-        Plane groundPlane = new Plane(Vector3.up, Vector3.up);
-        float rayLength;
-
-        if(groundPlane.Raycast(cameraRay, out rayLength))
-        {
-            lookPoint = cameraRay.GetPoint(rayLength);
-            Vector3 heightCorrection = new Vector3(lookPoint.x, transform.position.y, lookPoint.z);
-
-            transform.LookAt(heightCorrection);
-
-            crosshairs.transform.position = lookPoint;
-            crosshairs.DetectTarget(cameraRay);
+                crosshairs.transform.position = lookPoint;
+                crosshairs.DetectTarget(cameraRay);
+            }
         }
     }
 
@@ -101,4 +141,10 @@ public class PlayerController : MonoBehaviour
         canDash = true;
     }
 
+
+    //Checks if player is using gamepad or keyboard/mouse
+    public void OnDeviceChange(PlayerInput pi)
+    {
+        isGamepad = pi.currentControlScheme.Equals("Gamepad") ? true : false;
+    }
 }

@@ -611,6 +611,7 @@ MonoBehaviour:
   textAnim: {fileID: 0}
   floatingText: {fileID: 2770494395519076760, guid: 959087991fded4b40a53336823db6e88,
     type: 3}
+  coinCollect: {fileID: 8300000, guid: a3c82e1f44608db4a8b008ef0e843583, type: 3}
 --- !u!114 &8210930059561559715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,7 +649,7 @@ MonoBehaviour:
   crosshairPos: {fileID: 2212909638883614043}
   dashEffect: {fileID: 8527600919846810096, guid: e1df54f037c7c9e45837dc5594a6d696,
     type: 3}
-  dashSpeed: 2
+  dashSpeed: 4
 --- !u!114 &7548234786779562389
 MonoBehaviour:
   m_ObjectHideFlags: 0

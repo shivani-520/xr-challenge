@@ -613,7 +613,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1274931353
 MonoBehaviour:
@@ -739,7 +739,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 301589998}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: StartButton
+        m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1112,7 +1112,7 @@ PrefabInstance:
     - target: {fileID: 3960563204968151081, guid: 442be7ea43f3697458c49982e14b230d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3960563204968151081, guid: 442be7ea43f3697458c49982e14b230d,
         type: 3}
@@ -1402,7 +1402,7 @@ Transform:
   m_Children:
   - {fileID: 4823773092628999211}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 165, z: 0}
 --- !u!1 &5066542385598539195
 GameObject:

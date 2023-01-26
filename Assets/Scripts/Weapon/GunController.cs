@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    private bool isFiring = false;
+    public bool isFiring;
 
     private float nextShot;
     public float fireRate;
@@ -15,13 +15,25 @@ public class GunController : MonoBehaviour
     public GameObject muzzleFlashPrefab;
     public GameObject bulletPrefab;
 
+    private void Update()
+    {
+        if(isFiring)
+        {
+            StartFiring();
+        }
+        else
+        {
+            StopFiring();
+        }
+    }
 
     public void StartFiring()
     {
         isFiring = true;
+
         muzzleFlashPrefab.SetActive(true);
 
-        if(Time.time > nextShot)
+        if (Time.time > nextShot)
         {
             for (int i = 0; i < firePoint.Length; i++)
             {
@@ -38,6 +50,7 @@ public class GunController : MonoBehaviour
     public void StopFiring()
     {
         isFiring = false;
+
         muzzleFlashPrefab.SetActive(false);
 
     }

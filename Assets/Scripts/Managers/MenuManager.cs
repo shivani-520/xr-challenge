@@ -12,6 +12,11 @@ public class MenuManager : MonoBehaviour
         StartCoroutine(Delay());
     }
 
+    public void RestartButton()
+    {
+        StartCoroutine(DelayRestart());
+    }
+
     public void ExitButton()
     {
         Application.Quit();
@@ -23,5 +28,12 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    IEnumerator DelayRestart()
+    {
+        transitionAnimator.SetTrigger("end");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Level1");
+    } 
 
 }
