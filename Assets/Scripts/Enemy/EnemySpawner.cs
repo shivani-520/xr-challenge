@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public Transform[] spawnPoints;
-    public GameObject[] enemyType;
+    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private GameObject[] enemyType;
 
-    public float spawnRate = 1f;
-    public float timeBetweenWaves = 3f;
+    [SerializeField] private float spawnRate = 1f;
+    [SerializeField] private float timeBetweenWaves = 3f;
 
     private bool waveIsDone = true;
 

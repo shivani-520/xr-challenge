@@ -6,10 +6,11 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
-    public EnemySpawner enemySpawner;
+    [SerializeField] private EnemySpawner enemySpawner;
 
-    public TMP_Text scoreText;
-    public Animator doorAnimator;
+    [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private Animator doorAnimator;
+
 
     public int scoreCount;
     public int scoreForLevel;

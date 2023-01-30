@@ -8,7 +8,6 @@ public class EnemyType : MonoBehaviour
     public EnemyTypes whatTypeIsThisEnemy;
 
     private Animator enemyAnimator;
-    public Animator bossAnimator;
 
     private void Awake()
     {
@@ -30,10 +29,6 @@ public class EnemyType : MonoBehaviour
             case EnemyTypes.Hard:
                 enemyAnimator.SetTrigger("HardHit");
                 Debug.Log("HardEnemy");
-                break;
-            case EnemyTypes.Boss:
-                bossAnimator.SetTrigger("Hit");
-                Debug.Log("BossEnemy");
                 return;
             default:
                 break;

@@ -240,7 +240,10 @@ MonoBehaviour:
   deathEffect: {fileID: 6958039055404661736, guid: 6d1a94c4aec31b94b8e776f3b156ddbf,
     type: 3}
   healthBar: {fileID: 6104036697733152860}
+  enemyType: {fileID: -1149294894952206953}
   starSpawn: {fileID: 7719714504595985996}
+  hitSound: {fileID: 8300000, guid: a925632a564aaad42b8eacb3cce1a68d, type: 3}
+  dieSound: {fileID: 8300000, guid: 4fd73215eb77e8a40b063e6544a5584f, type: 3}
 --- !u!114 &-1149294894952206953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +257,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatTypeIsThisEnemy: 2
-  bossAnimator: {fileID: 0}
 --- !u!1 &3172966553066568071
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,7 +785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7719714504595985996}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: StarSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -798,7 +800,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7221672940126642386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

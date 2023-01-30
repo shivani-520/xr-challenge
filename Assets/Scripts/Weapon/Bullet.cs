@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float life = 3f;
+    private float life = 3f;
 
-    public AudioClip gunShot;
+    [SerializeField] private AudioClip gunShot;
 
     private void Awake()
     {

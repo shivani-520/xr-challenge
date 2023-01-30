@@ -7,7 +7,7 @@ public class TransitionManager : MonoBehaviour
 {
     public static TransitionManager instance;
 
-    public Animator transitionAnimator;
+    [SerializeField] private Animator transitionAnimator;
 
     private void Awake()
     {

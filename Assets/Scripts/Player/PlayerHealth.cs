@@ -7,16 +7,16 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Assign Health")]
-    public float maxHealth;
+    [SerializeField] private float maxHealth;
     public float currentHealth;
 
-    public TMP_Text healthText;
+    [SerializeField] private TMP_Text healthText;
 
-    public GameObject playerDeathEffect;
+    [SerializeField] private GameObject playerDeathEffect;
 
-    public Transform deathSpawn;
+    [SerializeField] private Transform deathSpawn;
 
-    public Animator textAnim;
+    [SerializeField] private Animator textAnim;
 
     // Start is called before the first frame update
     void Start()

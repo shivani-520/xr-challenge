@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Crosshair : MonoBehaviour
 {
-    public LayerMask targetMask;
+    [SerializeField] private LayerMask targetMask;
 
-    public SpriteRenderer dot;
-    public Color dotHightlightColour;
+    [SerializeField] private SpriteRenderer dot;
+    [SerializeField] private Color dotHightlightColour;
     private Color originalDotColour;
 
     private void Start()

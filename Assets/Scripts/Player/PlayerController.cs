@@ -5,10 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    [Header("Movement Properties")]
+    [SerializeField] private float speed;
     private Rigidbody rb;
 
-    public bool isGamepad;
+    private bool isGamepad;
 
     private Vector2 move;
     private Vector2 aim;
@@ -18,18 +19,20 @@ public class PlayerController : MonoBehaviour
     private InputMaster controls;
     private PlayerInput playerInput;
 
-
+    [Header("Crosshair Properties")]
     private Camera mainCamera;
     private Vector3 lookPoint;
-    public Crosshair crosshairs;
-    public Transform crosshairPos;
+    [SerializeField] private Crosshair crosshairs;
+    [SerializeField] private GameObject gamePadCrosshair;
+    [SerializeField] private GameObject pcCrosshair;
 
     private GunController weapon;
 
+    [Header("Dash Properties")]
     private bool isDashing = false;
     private bool canDash = true;
-    public GameObject dashEffect;
-    public float dashSpeed;
+    [SerializeField] private GameObject dashEffect;
+    [SerializeField] private float dashSpeed;
 
     private void Awake()
     {
@@ -53,10 +56,14 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         HandleInput();
-        HandleMovement();
         HandleRotation();
 
         if (isDashing) return;
+    }
+
+    private void FixedUpdate()
+    {
+        HandleMovement();
     }
 
     void HandleInput()
@@ -65,7 +72,7 @@ public class PlayerController : MonoBehaviour
         aim = controls.Player.Aim.ReadValue<Vector2>();
 
 
-        controls.Player.Shoot.started += context => weapon.isFiring = true;
+        controls.Player.Shoot.performed += context => weapon.isFiring = true;
         controls.Player.Shoot.canceled += context => weapon.isFiring = false;
 
         controls.Player.Dash.performed += context => HandleDash();
@@ -77,7 +84,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(move.x, 0, move.y);
         Vector3 moveVelocity = movement.normalized * speed;
 
-        rb.MovePosition(rb.position + moveVelocity * Time.deltaTime);
+        rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
 
     }
 
@@ -105,9 +112,9 @@ public class PlayerController : MonoBehaviour
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, newRot, gamePadRotateSmoothing * Time.deltaTime);
                 }
 
-                crosshairs.transform.position = crosshairPos.position;
-                //crosshairPos.position += Vector3.forward * 5 * Time.deltaTime;
-                
+                gamePadCrosshair.SetActive(true);
+                pcCrosshair.SetActive(false);
+;                
             }
         }
         else
@@ -125,6 +132,9 @@ public class PlayerController : MonoBehaviour
 
                 crosshairs.transform.position = lookPoint;
                 crosshairs.DetectTarget(cameraRay);
+
+                gamePadCrosshair.SetActive(false);
+                pcCrosshair.SetActive(true);
             }
         }
     }

@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public float maxHealth;
+    [SerializeField] private float maxHealth;
     public float currentHealth;
 
-    public GameObject pickUp;
-    public GameObject deathEffect;
+    [SerializeField] private GameObject pickUp;
+    [SerializeField] private GameObject deathEffect;
 
     public HealthBar healthBar;
-    private EnemyType enemyType;
+    [SerializeField] private EnemyType enemyType;
 
     private PickupManager pickUpManager;
 
-    public Transform starSpawn;
+    [SerializeField] private Transform starSpawn;
+
+    [SerializeField] private AudioClip hitSound;
 
     private void Awake()
     {
@@ -39,7 +41,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            pickUpManager.RandomlyGenerateStar(Random.Range(0, 5), starSpawn);
+            pickUpManager.RandomlyGenerateStar(Random.Range(0, 5), starSpawn.transform);
             GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
             Destroy(effect, 1f);
             Destroy(gameObject);
@@ -50,6 +52,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
+            SoundManager.instance.PlayerSound(hitSound);
             enemyType.CorrectAnimation();
             TakeDamage(20f);
         }

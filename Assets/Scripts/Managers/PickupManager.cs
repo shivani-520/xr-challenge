@@ -5,9 +5,9 @@ using UnityEngine;
 public class PickupManager : MonoBehaviour
 {
     public static PickupManager instance;
-    public GameObject pickUp;
+    [SerializeField] private GameObject pickUp;
 
-    public Animator textAnim;
+    [SerializeField] private Animator textAnim;
 
     private void Awake()
     {
@@ -19,6 +19,9 @@ public class PickupManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        transform.localPosition = new Vector3(0, 5, 0);
+
     }
 
 
@@ -27,7 +30,7 @@ public class PickupManager : MonoBehaviour
 
         if (Random.Range(0, 1) < probability)
         {
-            Instantiate(pickUp, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(pickUp, spawnPoint.position, Quaternion.identity);
         }
         else
         {

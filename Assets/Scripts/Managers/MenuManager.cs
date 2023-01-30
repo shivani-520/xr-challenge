@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public Animator transitionAnimator;
+    [SerializeField] private Animator transitionAnimator;
 
     public void StartButton()
     {

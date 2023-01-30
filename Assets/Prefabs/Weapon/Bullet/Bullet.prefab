@@ -112,8 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05445e2d44084a5468b0c7c1d409df70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 3
-  gunShot: {fileID: 8300000, guid: 6e48bb58de8756444a7b2af57221a7f3, type: 3}
+  gunShot: {fileID: 8300000, guid: 14b9a1ec12f4e2a49abbb04bb2f8dc83, type: 3}
 --- !u!54 &-2745889593787759637
 Rigidbody:
   m_ObjectHideFlags: 0

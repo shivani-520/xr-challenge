@@ -5,20 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCollisions : MonoBehaviour
 {
-    public GameObject[] star;
-    public Pickup justCollidedWith;
+    [SerializeField] private GameObject[] star;
+    [SerializeField] private Pickup justCollidedWith;
 
     private ScoreManager score;
     private PlayerHealth health;
 
     private Animator anim;
-    public Animator textAnim;
+    [SerializeField] private Animator textAnim;
 
-    public GameObject floatingText;
+    [SerializeField] private GameObject floatingText;
 
     private TransitionManager transitions;
 
-    public AudioClip coinCollect;
+    [SerializeField] private AudioClip coinCollect;
 
     private void Start()
     {

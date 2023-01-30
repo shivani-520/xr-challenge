@@ -7,13 +7,14 @@ public class GunController : MonoBehaviour
     public bool isFiring;
 
     private float nextShot;
-    public float fireRate;
-    public float bulletSpeed;
 
-    public Transform[] firePoint;
+    [SerializeField] private float fireRate;
+    [SerializeField] private float bulletSpeed;
 
-    public GameObject muzzleFlashPrefab;
-    public GameObject bulletPrefab;
+    [SerializeField] private Transform[] firePoint;
+
+    [SerializeField] private GameObject muzzleFlashPrefab;
+    [SerializeField] private GameObject bulletPrefab;
 
     private void Update()
     {
@@ -54,6 +55,4 @@ public class GunController : MonoBehaviour
         muzzleFlashPrefab.SetActive(false);
 
     }
-
-
 }
